@@ -1,0 +1,159 @@
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.dish-card:hover {
+    border: 2px solid rgb(191, 65, 65);
+}
+
+.dish-card:hover .add-btn {
+    background-color: rgb(191, 65, 65);
+    color: white;
+}
+
+.dish-card img {
+    width: 100%;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+.dish-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+.dish-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #333;
+    flex-grow: 1;
+}
+
+.dish-weight {
+    color: #666;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.add-btn {
+    background-color: #f1eee9;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+#active {
+    color: rgb(191, 65, 65);
+}
+
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    nav {
+        justify-content: space-between;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    nav a {
+        font-size: calc(25px + 4px);
+    }
+    
+    section h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-image {
+        max-width: 500px;
+    }
+    
+    nav {
+        justify-content: space-between;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    nav a {
+        font-size: calc(25px + 4px);
+    }
+    
+    .about-image {
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: calc(20px - 2px);
+    }
+}
+
+@media (max-width: 400px) {
+    table {
+        font-size: calc(20px - 4px);
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}

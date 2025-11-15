@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    color: black;
+}
+
+h1{
+    color: rgb(191, 65, 65);
+    font-family: cursive;
+}
+
+div, header, footer, main, nav{
+    margin: 15px 25px;
+    padding: 20px;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+table{
+    width: 100%;
+    padding: 0;
+    border-collapse:collapse;
+    text-align: center;
+}
+
+th, td{
+    padding: 12px;
+    border: 2px solid whitesmoke;
+}
+
+th{
+    background-color: whitesmoke;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a{
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    color: black;
+    margin-right: 15px;
+    padding: 15px;
+}
+
+nav a:hover{
+    color: rgb(191, 65, 65);
+    border-radius: 4px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 25px;
+}
+footer a{
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+    color: rgb(239, 231, 232);
+}
+
+footer a:hover{
+    color: rgb(191, 65, 65);
+}
+
+section{
+    margin-bottom: 30px;
+}
