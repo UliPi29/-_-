@@ -126,12 +126,15 @@ section{
     }
     
     table{
-        font-size: 18px; 
+        font-size: 14px; 
     }
 }
 
 @media (max-width: 400px) {
     table{
-        font-size: 16px; 
+        font-size: 12px; 
+    }
+    th, td {
+        padding: 8px; 
     }
 }
