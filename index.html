@@ -1,88 +1,333 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru  ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LunchMoscow Express</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Домашки на js</title>
+    <style>
+        body{font-family: sans-serif;}
+        section{margin-top: 15px; border-top: 2px solid black;}
+    </style>
 </head>
 <body>
     <header>
-        <h1>LunchMoscow Express</h1>
-        <nav>
-            <a href="index.html" class="active">О нас</a>
-            <a href="lun.html">Собрать ланч</a>
-            <a href="order.html">Заказы</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
+        <h1 style="text-align: center; color: rgb(191, 65, 65);">Домашки на js</h1>
     </header>
     <main>
         <section>
-            <img class="ab" src="https://static.thatsup.co/content/img/article/22/nov/guide-to-the-best-restaurants-for-takeaways-in-south-london.jpg" alt="Заставка с едой">
-            <h2 class="red">О нас</h2>
-            <p>LunchMoscow Express - доставка бизнес-ланчей в Москве. Мы привезем вам горячую вкусную еду в любую точку города к назначенному времени.</p>
+            <h2>Возведение в степень | Exponentiation</h2>
+            <div>
+                <label>Основание (x): <input type="number" id="b1in" value="2"></label>
+                <label> Степень (n): <input type="number" id="ex1in" value="3"></label>
+                <button onclick="calculatePow()">Вычислить степень</button>
+            </div>
+            <div id="pow-res"></div>
         </section>
+
         <section>
-            <h2 class="red">Преимущества LunchMoscow Express</h2>
-            <ol>
-                <li>Привозим обед к назначенному времени без опозданий</li>
-                <li>Надежно упаковываем блюда в удобные контейнеры бесплатно</li>
-                <li>Доставляем ланчи весь день с 7:00 до 23:00</li>
-                <li>Свежие продукты и качественное приготовление</li>
-            </ol>
+            <h2>Нахождение НОД | Greatest common divisor (GCD)</h2>
+            <div>
+                <label>Число a: <input type="number" id="GCDa" value="0"></label>
+                <label>Число b: <input type="number" id="GCDb" value="0"></label>
+                <button onclick="calculateGCD()">Найти НОД</button>
+            </div>
+            <div id="GCD-res"></div>
         </section>
+        
         <section>
-            <h2 class="red">Топ-5 популярных блюд</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>№</th>
-                        <th>Название</th>
-                        <th>Кол-во заказов в неделю</th>
-                        <th>Цена</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Лазанья</td>
-                        <td>185</td>
-                        <td>385Р</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Том Ям с креветками</td>
-                        <td>161</td>
-                        <td>365Р</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Норвежский суп</td>
-                        <td>144</td>
-                        <td>270Р</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Жареная картошка с грибами</td>
-                        <td>132</td>
-                        <td>150Р</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Котлеты из курицы с картофельным пюре</td>
-                        <td>128</td>
-                        <td>225Р</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>Наименьшая цифра | Minimum digit</h2>
+            <div>
+                <label>Число (x): <input type="number" id="mindig" value="12345"></label>
+                <button onclick="calculateMinDigit()">Найти наименьшую цифру</button>
+            </div>
+            <div id="mindig-res"></div>
         </section>
+        
+        <section>
+            <h2>Pluralization</h2>
+            <div>
+                <label>Количество записей (n): <input type="number" id="plurin" value="0"></label>
+                <button onclick="calculatePlural()">Сформировать фразу</button>
+            </div>
+            <div id="plural-res"></div>
+        </section>
+        
+        <section>
+            <h2>Числа Фибоначчи | Fibonacci numbers</h2>
+            <div>
+                <label>Число (n): <input type="number" id="fibin" value="0" min="0" max="1000"></label>
+                <button onclick="calculateFibon()">Вывести последовательность</button> 
+            </div>
+            <div id="fibon-res"></div>
+        </section>
+        
+        <section>
+            <h2>Сортировка объектов | Sorting objects</h2>
+            <div>
+                <label>Массив (array):</label>
+                <textarea id="sortin" cols="50" rows="6">
+[{"name": "Петя", "age": 18},
+{"name": "Вася", "age": 19},
+{"name": "Саша", "age": 21}, 
+{"name": "Дима", "age": 25}]
+                </textarea><br>
+                <label>Ключ (key): <input type="text" id="sortkey" value="age" style="margin: 10px;"></label><br>
+                <button onclick="calculateSort()">Отсортировать</button>
+            </div>
+            <div id="sort-res"></div>
+        </section>
+        
+        <section>
+            <h2>Шифр Цезаря | Caesar's cipher</h2>
+            <div>
+                <label >Текст: <input type="text" id="cesar-str" value="эзтыхз фзъзъз" style="margin-bottom: 10px;"></label><br>
+                <label>Сдвиг: <input type="number" id="cesar-shift" value="8" style="margin-bottom: 10px;"></label><br>
+                <label>Действие: 
+                    <select id="cesar-action" style="margin-bottom: 10px;">
+                        <option value="encode">Шифрование</option>
+                        <option value="decode" selected>Дешифровка</option>
+                    </select>
+                </label><br>
+                <button onclick="calculateCesar()">Выполнить</button>
+            </div>
+            <div id="cesar-res"></div>
+        </section>
+        
+        <section style="margin-bottom: 30px;">
+            <h2>Математическая игра | Math game</h2>
+            <a href="Math_game.html" class="button" style="text-decoration: none; color: rgb(191, 65, 65); font-size: 20px; padding: 10px; border-radius: 5px; border: 2px solid ;">Перейти</a>
+        </section>
+        
     </main>
-    <footer id="contacts">
-        <p>Позвонить нам: <a href="tel:+70000000000">+7-000-000-00-00</a></p>
-        <p>&copy; LunchMoscow Express - доставка бизнес-ланчей в Москве</p>
-    </footer>
+
+    <script src="Exponen.js"></script>
+    <script src="GCD.js"></script>
+    <script src="Min_dig.js"></script>
+    <script src="Pluraliz.js"></script>
+    <script src="Fibon.js"></script>
+    <script src="Sort.js"></script>
+    <script src="Cipher.js"></script>
+    
+    <script>
+        //Для возведения в степень
+        function calculatePow(){
+            const baseInput = document.getElementById('b1in');
+            const exponentInput = document.getElementById('ex1in');
+            const resultsContainer = document.getElementById('pow-res');
+            
+            const x = parseFloat(baseInput.value);
+            const n = parseFloat(exponentInput.value);
+            
+                if (n%1!==0) {
+                    showError('Степень должна быть целым числом');
+                    return;
+                }
+        
+                if (n < 1) {
+                    showError('Степень должна быть натуральным числом');
+                    return;
+                }
+            
+            const result = pow(x, n);
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = `${x} ^ ${n} = ${result}`;
+            resultsContainer.appendChild(p);
+            
+            function showError(message) {
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = message;
+            p.style.color = 'red';
+            resultsContainer.appendChild(p);
+        }
+        }
+        //Для нахождения НОД
+        function calculateGCD(){
+            const aInput = document.getElementById('GCDa');
+            const bInput = document.getElementById('GCDb');
+            const resultsContainer = document.getElementById('GCD-res');
+            
+            const a = parseFloat(aInput.value);
+            const b = parseFloat(bInput.value);
+
+            const result = gcd(a, b);
+            
+            if (isNaN(result)) {
+                showErrorGCD('Оба числа должны быть неотрицательными');
+                return;
+            }
+            
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = `НОД(${a}, ${b}) = ${result}`;
+            resultsContainer.appendChild(p);
+
+            function showErrorGCD(message) {
+                resultsContainer.innerHTML = '';
+                const p = document.createElement('p');
+                p.textContent = message;
+                p.style.color = 'red';
+                resultsContainer.appendChild(p);
+            }
+        }
+        //Для нахождения наименьшей цифры
+        function calculateMinDigit(){
+            const input = document.getElementById('mindig');
+            const resultsContainer = document.getElementById('mindig-res');
+            
+            const x = parseFloat(input.value);
+            const result = minDigit(x);
+            
+            if (x%1!==0) {
+                showErrorMinDigit('Число должно быть целым');
+                return;
+            }
+                
+            if (isNaN(result)) {
+                showErrorMinDigit('Число должно быть неотрицательным');
+                return;
+            }
+            
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = `В числе ${x} наименьшая цифра : ${result}`;
+            resultsContainer.appendChild(p);
+
+            function showErrorMinDigit(message) {
+                resultsContainer.innerHTML = '';
+                const p = document.createElement('p');
+                p.textContent = message;
+                p.style.color = 'red';
+                resultsContainer.appendChild(p);
+            }
+        }
+        //Для Pluralization
+        function calculatePlural(){
+            const input = document.getElementById('plurin');
+            const resultsContainer = document.getElementById('plural-res');
+            
+            const n = parseFloat(input.value);
+            
+            if (n%1!==0) {
+                showErrorPlural('Число должно быть целым');
+                return;
+            }
+        
+            if (n < 0) {
+                showErrorPlural('Число должно быть неотрицательным');
+                return;
+            }
+            
+            const result = pluralizeRecords(n);
+            
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = result;
+            resultsContainer.appendChild(p);
+
+            function showErrorPlural(message) {
+                resultsContainer.innerHTML = '';
+                const p = document.createElement('p');
+                p.textContent = message;
+                p.style.color = 'red';
+                resultsContainer.appendChild(p);
+            }
+        }
+        //Для вывода последовательности Фибоначчи
+        function calculateFibon(){
+            const input = document.getElementById('fibin');
+            const resultsContainer = document.getElementById('fibon-res');
+            
+            const n = parseFloat(input.value);
+            
+            if (n%1!==0) {
+                showErrorFibon('Число должно быть целым');
+                return;
+            }
+        
+            if (n < 0) {
+                showErrorFibon('Число должно быть неотрицательным');
+                return;
+            }
+            
+            const result = fibb(n);
+            
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = `Число Фибоначчи для ${n} = ${result}`;
+            resultsContainer.appendChild(p);
+
+            function showErrorFibon(message) {
+                resultsContainer.innerHTML = '';
+                const p = document.createElement('p');
+                p.textContent = message;
+                p.style.color = 'red';
+                resultsContainer.appendChild(p);
+            }
+        }
+        //Для сортировки объектов
+        function calculateSort(){
+            const input = document.getElementById('sortin');
+            const keyInput = document.getElementById('sortkey');
+            const resultsContainer = document.getElementById('sort-res');
+            
+            try {
+                const array = JSON.parse(input.value);
+                const key = keyInput.value.trim();
+                
+                if (!Array.isArray(array)) {
+                    throw new Error('Введенные данные должны быть массивом');
+                }
+                
+                if (!key) {
+                    throw new Error('Ключ не может быть пустым');
+                }
+                
+                // Проверяем, что у всех объектов есть указанный ключ
+                for (let i = 0; i < array.length; i++) {
+                    if (!array[i].hasOwnProperty(key)) {
+                        throw new Error(`Объект с индексом ${i} не содержит ключ "${key}"`);
+                    }
+                }
+                
+                const result = getSortedArray(array, key);
+                
+                resultsContainer.innerHTML = '';
+                const p = document.createElement('p');
+                p.textContent = 'Отсортированный массив:';
+                resultsContainer.appendChild(p);
+                
+                const pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(result, null, 2);
+                resultsContainer.appendChild(pre);
+                
+            } catch (error) {
+                resultsContainer.innerHTML = '';
+                const p = document.createElement('p');
+                p.textContent = `Ошибка: ${error.message}`;
+                p.style.color = 'red';
+                resultsContainer.appendChild(p);
+            }
+        }
+        //Для шифра Цезаря
+        function calculateCesar() {
+            const strInput = document.getElementById('cesar-str');
+            const shiftInput = document.getElementById('cesar-shift');
+            const actionInput = document.getElementById('cesar-action');
+            const resultsContainer = document.getElementById('cesar-res');
+            
+            const str = strInput.value;
+            const shift = parseInt(shiftInput.value);
+            const action = actionInput.value;
+            
+            const result = cesar(str, shift, action);
+            
+            resultsContainer.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = result;
+            resultsContainer.appendChild(p);
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математическая игра</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: rgb(191, 65, 65);
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: rgb(191, 65, 65);
+        }
+        
+        .question-container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .level-indicator {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .question {
+            font-size: 2rem;
+            margin: 15px 0;
+            min-height: 50px;
+        }
+        
+        .timer {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .input-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            background: rgb(191, 65, 65);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: rgb(160, 55, 55);
+        }
+        
+        .feedback {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            min-height: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .correct {
+            color: green;
+        }
+        
+        .incorrect {
+            color: red;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .secondary-btn {
+            background: #666;
+        }
+        
+        .secondary-btn:hover {
+            background: #555;
+        }
+        
+        .game-over, .level-up {
+            text-align: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Математическая игра</h1>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div>Уровень</div>
+                <div class="stat-value" id="level">Начальный</div>
+            </div>
+            <div class="stat-item">
+                <div>Вопрос</div>
+                <div class="stat-value" id="question-count">1/10</div>
+            </div>
+            <div class="stat-item">
+                <div>Правильно</div>
+                <div class="stat-value" id="correct-count">0</div>
+            </div>
+            <div class="stat-item">
+                <div>Неправильно</div>
+                <div class="stat-value" id="incorrect-count">0</div>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="level-indicator" id="level-indicator">Начальный уровень</div>
+            <div class="question" id="question">3 × 13</div>
+            <div class="timer" id="timer">Время: 30 сек</div>
+        </div>
+        
+        <div class="feedback" id="feedback"></div>
+        
+        <div class="input-container">
+            <input type="text" id="answer-input" placeholder="Ваш ответ">
+            <button id="submit-btn">Ответить</button>
+        </div>
+        
+        <div class="controls">
+            <button id="restart-btn" class="secondary-btn">Начать заново</button>
+            <button id="exit-btn" class="secondary-btn">Выйти</button>
+        </div>
+        
+        <div id="level-up-message" class="level-up hidden">
+            <h2>Поздравляем!</h2>
+            <p>Вы успешно прошли на следующий уровень!</p>
+            <button id="next-level-btn">Продолжить</button>
+        </div>
+        
+        <div id="game-over-message" class="game-over hidden">
+            <h2>Игра завершена</h2>
+            <p id="final-score">Ваш результат: 0/10</p>
+            <p id="completion-message"></p>
+            <button id="play-again-btn">Играть снова</button>
+        </div>
+    </div>
+
+    <script src="math_game.js"></script>
+</body>
+</html>
