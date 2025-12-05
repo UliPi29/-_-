@@ -2,13 +2,15 @@
 let currentOrder = {
     soup: null,
     main_course: null,
-    drink: null
+    drink: null,
+    salad: null,
+    dessert: null
 };
 
 // Функция для обновления отображения заказа в форме
 function updateOrderDisplay() {
     // Проверяем, есть ли выбранные блюда
-    const hasSelectedItems = currentOrder.soup || currentOrder.main_course || currentOrder.drink;
+    const hasSelectedItems = currentOrder.soup || currentOrder.main_course || currentOrder.drink || currentOrder.salad || currentOrder.dessert;
     
     const emptyMessage = document.getElementById('order-empty-message');
     const orderItems = document.getElementById('order-items');
@@ -26,6 +28,8 @@ function updateOrderDisplay() {
         updateCategoryDisplay('soup');
         updateCategoryDisplay('main_course');
         updateCategoryDisplay('drink');
+        updateCategoryDisplay('salad');
+        updateCategoryDisplay('dessert');
         
         // Обновляем общую стоимость
         updateOrderCost();
@@ -73,6 +77,8 @@ function updateHiddenFields() {
     document.getElementById('soup-hidden').value = currentOrder.soup ? currentOrder.soup.keyword : '';
     document.getElementById('main_course-hidden').value = currentOrder.main_course ? currentOrder.main_course.keyword : '';
     document.getElementById('drink-hidden').value = currentOrder.drink ? currentOrder.drink.keyword : '';
+    document.getElementById('salad-hidden').value = currentOrder.salad ? currentOrder.salad.keyword : '';
+    document.getElementById('dessert-hidden').value = currentOrder.dessert ? currentOrder.dessert.keyword : '';
 }
 
 // Функция для расчета и отображения стоимости заказа
@@ -90,6 +96,14 @@ function updateOrderCost() {
     
     if (currentOrder.drink) {
         totalCost += currentOrder.drink.price;
+    }
+
+    if (currentOrder.salad){
+        totalCost += currentOrder.salad.price;
+    }
+
+    if(currentOrder.dessert){
+        totalCost += currentOrder.dessert.price;
     }
     
     // Обновляем отображение общей стоимости
@@ -117,11 +131,8 @@ function handleDishClick(event) {
         if (selectedDish) {
             console.log('Found dish:', selectedDish);
             
-            // Обновляем текущий выбор в соответствующей категории
-            currentOrder[selectedDish.category] = selectedDish;
-            
             // Обновляем отображение заказа
-            updateOrderDisplay();
+            addToOrder(selectedDish);
         } else {
             console.error('Dish not found for keyword:', dishKeyword);
         }
@@ -130,13 +141,56 @@ function handleDishClick(event) {
     }
 }
 
+// Функция для добавления обработчиков к кнопкам "Добавить"
+function attachAddButtonListeners() {
+    document.querySelectorAll('.add-btn').forEach(button => {
+        // Удаляем старый обработчик, если он есть
+        button.removeEventListener('click', handleAddButtonClick);
+        
+        // Добавляем новый обработчик
+        button.addEventListener('click', handleAddButtonClick);
+    });
+}
+
+// Обработчик клика по кнопке "Добавить"
+function handleAddButtonClick() {
+    const dishKeyword = this.getAttribute('data-keyword');
+    const dish = dishes.find(d => d.keyword === dishKeyword);
+    
+    if (dish) {
+        addToOrder(dish);
+    }
+}
+
+// Глобальная переменная для отслеживания выбранных блюд (для валидации)
+let selectedDishes = [];
+
+// Обновляем функцию addToOrder для работы с обновленными кнопками
+function addToOrder(dish) {
+    // Обновляем currentOrder
+    currentOrder[dish.category] = dish;
+    
+    // Обновляем selectedDishes для валидации
+    // Убираем старое блюдо той же категории, если есть
+    selectedDishes = selectedDishes.filter(d => d.category !== dish.category);
+    // Добавляем новое блюдо
+    selectedDishes.push(dish);
+    
+    // Обновляем отображение
+    updateOrderDisplay();
+}
+
 // Функция для сброса заказа
 function resetOrder() {
     currentOrder = {
         soup: null,
         main_course: null,
-        drink: null
+        drink: null,
+        salad: null,
+        dessert: null
     };
+    selectedDishes = [];
+    console.log('Reset: selectedDishes =', selectedDishes);
     updateOrderDisplay();
 }
 
