@@ -1,0 +1,1258 @@
+/* Стили для карточек блюд */
+.dishes .dish-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 25px;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+    background-color: white;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    height: auto;
+    min-height: 380px;
+    justify-content: space-between;
+}
+
+.dishes .dish-card:hover {
+    border-color: rgb(191, 65, 65);
+    transform: translateY(-5px);
+}
+
+.dishes .dish-card img {
+    width: 240px;
+    height: 180px;
+    border-radius: 35px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.dishes .dish-card .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 8px 0;
+}
+
+.dishes .dish-card .name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.3;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dishes .dish-card .weight {
+    color: #666;
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.dishes .dish-card button {
+    background-color: #f1eee9;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+.dishes .dish-card button:hover {
+    background-color: rgb(191, 65, 65);
+    color: white;
+}
+
+/* Стили для удаления (в checkout) */
+.dishes .dish-card .remove-btn {
+    background-color: #f1eee9;
+    color: black;
+}
+
+.dishes .dish-card .remove-btn:hover {
+    background-color: rgb(191, 65, 65);
+}
+
+/* Стиль для добавленных блюд */
+.dishes .dish-card.selected {
+    border-color: rgb(191, 65, 65);
+}
+
+.dishes .dish-card.selected button {
+    background-color: rgb(191, 65, 65);
+    color: white;
+}
+
+/* Обновленные стили для плавающей панели заказа */
+.order-panel {
+    position: sticky;
+    max-height: 100px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 8px 120px; /* Уменьшили толщину панели */
+    z-index: 100;
+    border-top: 2px solid rgb(191, 65, 65);
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.order-panel.visible {
+    transform: translateY(0);
+}
+
+.order-panel:not(.visible) {
+    transform: translateY(100%);
+}
+
+.floating-panel-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: -20px;
+}
+
+.floating-total {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.total-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.total-amount {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(191, 65, 65);
+}
+
+#floating-checkout-btn {
+    background-color: rgb(191, 65, 65);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#floating-checkout-btn:hover {
+    background-color: rgb(150, 50, 50);
+    color: white;
+    transform: translateY(-2px);
+}
+
+#floating-checkout-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#floating-checkout-btn.disabled:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+/* Стили для уведомлений о комбо */
+.combo-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.notification-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    border: 2px solid rgb(191, 65, 65);
+}
+
+.notification-content h3 {
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(191, 65, 65);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.notification-content p {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.notification-image {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: rgb(191, 65, 65);
+    animation: bounce 1s infinite alternate;
+}
+
+.close-notification {
+    padding: 12px 35px;
+    background-color: rgb(191, 65, 65);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.close-notification:hover {
+    background-color: rgb(150, 50, 50);
+    transform: scale(1.05);
+}
+
+/* Анимации для уведомлений */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* Стили для успешного уведомления */
+.success-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.success-notification-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    border: 2px solid rgb(191, 65, 65);
+}
+
+.success-notification-content h3 {
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(191, 65, 65);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.success-notification-content p {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.success-notification-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: rgb(191, 65, 65);
+    animation: successBounce 0.5s ease;
+}
+
+@keyframes successBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.success-ok-btn {
+    padding: 12px 35px;
+    background-color: rgb(191, 65, 65);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.success-ok-btn:hover {
+    background-color: rgb(150, 50, 50);
+    transform: scale(1.05);
+}
+
+/* Стили для кнопок действий в таблице заказов */
+.order-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-details {
+    background-color: #f1eee9;
+    color: #333;
+}
+
+.btn-details:hover {
+    background-color: rgb(191, 65, 65);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-edit {
+    background-color: rgb(149, 165, 166);
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: rgb(127, 140, 141);
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: rgb(191, 65, 65);
+    transform: translateY(-2px);
+}
+
+/* Стили для кнопок в модальных окнах */
+.btn-ok {
+    padding: 10px 30px;
+    background-color: rgb(191, 65, 65);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ok:hover {
+    background-color: rgb(150, 50, 50);
+}
+
+.btn-save {
+    padding: 10px 30px;
+    background-color: rgb(191, 65, 65);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: rgb(150, 50, 50);
+}
+
+.btn-cancel {
+    padding: 10px 30px;
+    background-color: rgb(149, 165, 166);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background-color: rgb(127, 140, 141);
+}
+
+.btn-confirm-delete {
+    padding: 10px 30px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-confirm-delete:hover {
+    background-color: rgb(191, 65, 65);
+}
+
+.btn-cancel-delete {
+    padding: 10px 30px;
+    background-color: rgb(149, 165, 166);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel-delete:hover {
+    background-color: rgb(127, 140, 141);
+}
+
+/* Общие стили для модальных окон */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    position: relative;
+    border: 2px solid rgb(191, 65, 65);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: rgb(191, 65, 65);
+}
+
+.modal h3 {
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(191, 65, 65);
+    margin-bottom: 25px;
+    font-size: 24px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Стили для деталей заказа */
+.order-detail {
+    font-family: 'Comfortaa', sans-serif;
+    margin: -30px;
+   
+}
+
+.order-detail p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.order-detail strong {
+    color: #333;
+    min-width: 180px;
+    display: inline-block;
+}
+
+.order-detail > p > strong {
+    color: rgb(191, 65, 65);
+}
+
+
+.order-composition {
+    max-width: 300px;
+}
+
+.order-composition-text {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Стили для формы редактирования */
+.form-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.form-section h4 {
+    font-family: 'Comfortaa', sans-serif;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#edit-order-form label:not([for^="edit-"]) {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    font-family: 'Comfortaa', sans-serif;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+#edit-order-form input[type="text"],
+#edit-order-form input[type="email"],
+#edit-order-form input[type="tel"],
+#edit-order-form input[type="time"],
+#edit-order-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Comfortaa', sans-serif;
+    transition: border-color 0.3s;
+    margin-bottom: 10px;
+}
+
+#edit-order-form input:focus,
+#edit-order-form textarea:focus {
+    border-color: rgb(191, 65, 65);
+    outline: none;
+}
+
+#edit-order-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#edit-order-form label[for^="edit-"] {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#edit-order-form input[type="radio"],
+#edit-order-form input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+#edit-order-form small {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Стили для тостов (уведомлений) */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 300px;
+    max-width: 400px;
+    animation: slideInRight 0.3s ease, fadeOut 0.3s ease 2s forwards;
+    border-left: 4px solid;
+}
+
+.toast-success {
+    border-left-color: rgb(191, 65, 65);
+}
+
+.toast-error {
+    border-left-color: rgb(191, 65, 65);
+}
+
+.toast-info {
+    border-left-color: rgb(149, 165, 166);
+}
+
+.toast-icon {
+    font-size: 24px;
+}
+
+.toast-success .toast-icon {
+    color: rgb(191, 65, 65);
+}
+
+.toast-error .toast-icon {
+    color: rgb(191, 65, 65);
+}
+
+.toast-info .toast-icon {
+    color: rgb(149, 165, 166);
+}
+
+.toast-content {
+    flex-grow: 1;
+}
+
+.toast-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.toast-message {
+    font-size: 14px;
+    color: #666;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Мобильное представление таблицы */
+.mobile-order-card {
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid rgb(191, 65, 65);
+}
+
+.mobile-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-number {
+    font-weight: bold;
+    color: rgb(191, 65, 65);
+    font-size: 18px;
+}
+
+.order-date {
+    color: #666;
+    font-size: 14px;
+}
+
+.mobile-order-details {
+    margin-bottom: 15px;
+}
+
+.order-detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #eee;
+}
+
+.order-detail-label {
+    font-weight: bold;
+    color: #555;
+    min-width: 120px;
+}
+
+.order-detail-value {
+    text-align: right;
+    color: #333;
+    flex-grow: 1;
+}
+
+.order-composition-mobile {
+    max-width: 100%;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+/* Адаптивность для сетки карточек */
+@media (max-width: 900px) {
+    .dishes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .dishes .dish-card {
+        padding: 15px 20px;
+        min-height: 350px;
+    }
+    
+    .dishes .dish-card img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .dishes .dish-card .price {
+        font-size: 22px;
+    }
+    
+    .dishes .dish-card .name {
+        font-size: 16px;
+        min-height: 40px;
+    }
+    
+    .floating-panel-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .total-label {
+        font-size: 16px;
+    }
+    
+    .total-amount {
+        font-size: 20px;
+    }
+    
+    #floating-checkout-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+/* Адаптивность для модальных окон */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+    }
+    
+    .modal h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .order-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .action-btn {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-buttons button {
+        width: 100%;
+    }
+    
+    /* Форма редактирования на мобильных */
+    .form-section h4 {
+        font-size: 16px;
+    }
+    
+    #edit-order-form label:not([for^="edit-"]) {
+        font-size: 14px;
+    }
+    
+    #edit-order-form input[type="text"],
+    #edit-order-form input[type="email"],
+    #edit-order-form input[type="tel"],
+    #edit-order-form input[type="time"],
+    #edit-order-form textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    #edit-order-form label[for^="edit-"] {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+    
+    /* Таблица заказов на планшетах */
+    .orders-table th,
+    .orders-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+    
+    .toast {
+        min-width: 250px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .dishes .dish-card {
+        min-height: 320px;
+    }
+    
+    .order-panel {
+        padding: 6px 20px;
+    }
+    
+    /* Переключение с таблицы на карточки для заказов */
+    .orders-table-container {
+        display: none;
+    }
+    
+    .mobile-order-card {
+        display: block;
+    }
+    
+    /* Модальные окна на очень маленьких экранах */
+    .modal-content {
+        padding: 15px;
+        width: 98%;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+    }
+    
+    /* Детали заказа в модальном окне */
+    .order-detail strong {
+        min-width: 120px;
+        font-size: 14px;
+    }
+    
+    .order-detail p {
+        font-size: 14px;
+    }
+    
+    /* Уведомления на мобильных */
+    .notification-content,
+    .success-notification-content {
+        padding: 20px;
+    }
+    
+    .notification-content h3,
+    .success-notification-content h3 {
+        font-size: 20px;
+    }
+    
+    .notification-content p,
+    .success-notification-content p {
+        font-size: 14px;
+    }
+    
+    .notification-image {
+        font-size: 40px;
+    }
+    
+    .success-notification-icon {
+        font-size: 50px;
+    }
+    
+    .close-notification,
+    .success-ok-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    
+    /* Тосты на мобильных */
+    .toast {
+        min-width: 200px;
+        padding: 10px 15px;
+    }
+    
+    .toast-icon {
+        font-size: 20px;
+    }
+    
+    .toast-title {
+        font-size: 14px;
+    }
+    
+    .toast-message {
+        font-size: 12px;
+    }
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 400px) {
+    .dishes .dish-card {
+        padding: 10px 15px;
+        min-height: 300px;
+    }
+    
+    .dishes .dish-card img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .dishes .dish-card .price {
+        font-size: 18px;
+    }
+    
+    .dishes .dish-card .name {
+        font-size: 14px;
+        min-height: 35px;
+    }
+    
+    .dishes .dish-card .weight {
+        font-size: 14px;
+    }
+    
+    .dishes .dish-card button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    
+    /* Мобильные карточки заказов */
+    .mobile-order-card {
+        padding: 15px;
+    }
+    
+    .order-number {
+        font-size: 16px;
+    }
+    
+    .order-date {
+        font-size: 12px;
+    }
+    
+    .order-detail-label {
+        min-width: 100px;
+        font-size: 14px;
+    }
+    
+    .order-detail-value {
+        font-size: 14px;
+    }
+    
+    /* Кнопки действий в мобильных карточках */
+    .mobile-order-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 15px;
+    }
+    
+    .mobile-order-actions .action-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Стили для горизонтальной ориентации на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-content {
+        max-height: 70vh;
+    }
+    
+    .orders-table-container {
+        display: block;
+    }
+    
+    .mobile-order-card {
+        display: none;
+    }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 900px) {
+    .order-panel {
+        padding: 6px 20px;
+    }
+    
+    .floating-panel-content {
+        gap: 10px;
+        margin-top: -40px;
+    }
+    
+    .floating-total {
+        gap: 5px;
+        margin-bottom: -10px;
+        padding: 16px;
+    }
+    
+    .total-label {
+        font-size: 18px;
+    }
+    
+    .total-amount {
+        font-size: 20px;
+    }
+    
+    #floating-checkout-btn {
+        width: 100%;
+        max-width: 300px;
+        margin-top: -16px;
+        padding: 1px;
+        font-size: 16px;
+    }
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 600px) {
+    .order-panel {
+        padding: 6px 15px;
+    }
+    
+    .total-label {
+        font-size: 16px;
+    }
+    
+    .total-amount {
+        font-size: 18px;
+    }
+
+    #floating-checkout-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        max-width: 220px;
+    }
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 400px) {
+    .order-panel {
+        padding: 4px 10px;
+    }
+    
+    .floating-panel-content {
+        gap: 8px;
+        margin-top: -40px;
+    }
+    
+    .floating-total {
+        gap: 10px;
+    }
+    
+    .total-label {
+        font-size: 10px;
+       
+    }
+    
+    .total-amount {
+        font-size: 12px;
+       
+    }
+    
+    #floating-checkout-btn {
+        padding: 6px 12px;
+        font-size: 8px;
+        max-width: 220px;
+        white-space: normal;
+        line-height: 1.2;
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Горизонтальная ориентация на мобильных */
+@media (max-width: 600px) and (orientation: landscape) {
+    .order-panel {
+        padding: 4px 15px;
+    }
+    
+    .floating-panel-content {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+    }
+    
+    .floating-total {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    #floating-checkout-btn {
+        max-width: 180px;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+/* Дополнительная адаптивность для очень низких разрешений */
+@media (max-width: 350px) {
+    .order-panel {
+        padding: 3px 8px;
+    }
+    
+    .floating-panel-content {
+        gap: 6px;
+    }
+    
+    .total-label {
+        font-size: 13px;
+    }
+    
+    .total-amount {
+        font-size: 15px;
+    }
+    
+    #floating-checkout-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+        max-width: 200px;
+        min-height: 32px;
+    }
+}
+
+/* Улучшение для очень коротких текстов */
+.short-text-mode .total-label {
+    display: none;
+}
+
+.short-text-mode .floating-total::before {
+    content: "Итого:";
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+/* JavaScript-помощник для очень маленьких экранов */
+@media (max-width: 320px) {
+    #floating-checkout-btn {
+        font-size: 10px;
+        padding: 4px 8px;
+        max-width: 180px;
+    }
+}
+
+/* Адаптивность для панели при скролле */
+.order-panel.scrolled {
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Плавное появление/исчезновение */
+.order-panel {
+    transition: all 0.3s ease;
+}
+
+.order-panel.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+}

@@ -17,6 +17,10 @@ h1{
     line-height: 1em;
 }
 
+.hcentr{
+    text-align: center;
+}
+
 .red{
     color: rgb(191, 65, 65);
 }
@@ -103,7 +107,8 @@ section{
     }
     
     nav{
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
     }
     
     h1{
@@ -133,8 +138,5 @@ section{
 @media (max-width: 400px) {
     table{
         font-size: 12px; 
-    }
-    th, td {
-        padding: 8px; 
     }
 }

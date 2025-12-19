@@ -1,16 +1,18 @@
 /*стили сетки блюд*/
-.dishes-grid{
+.dishes{
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 40px;
 }
+
 
 .dish-card{
     display: flex;
     flex-direction: column;
     padding: 30px 40px;
+    height: 100%;
     border-radius: 35px;
     cursor: pointer;
     filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
@@ -30,8 +32,10 @@
 
 .dish-card img{
     width: 100%;
+    
     border-radius: 35px;
     margin-bottom: 15px;
+    
 }
 
 .dish-price{
@@ -55,7 +59,7 @@
     font-size: 16px;
 }
 
-.add-btn{
+.dish-card button{
     background-color: #f1eee9;
     border: none;
     padding: 10px 30px;
@@ -67,6 +71,11 @@
     transition: all 0.3s ease;
 }
 
+.dish-card button:hover{
+    color: #fff;
+    background-color: rgb(191, 65, 65);
+}
+
 /*стили для формы заказа*/
 .form{
     max-width: 1200px;
@@ -76,6 +85,7 @@
 
 .form-group{
     margin-bottom: -30px;
+    margin-left: 30px;
 }
 
 .form-container{
@@ -99,12 +109,14 @@
     padding-bottom: 10px;
 }
 
+
 .form-group label{
     display: block;
-    margin-bottom: 5px;
     font-weight: bold;
     color: #555;
     font-family: 'Comfortaa', cursive;
+    margin-bottom: 3px;
+    margin-top: 5px;
 }
 
 .form-group input[type="text"],
@@ -114,9 +126,10 @@
 .form-group select,
 .form-group textarea{
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     border: 2px solid #ddd;
     border-radius: 5px;
+    text-align: center;
     font-size: 16px;
     font-family: 'Comfortaa', cursive;
     transition: border-color 0.3s;
@@ -141,6 +154,7 @@
 }
 
 .checkbox-group label{
+    
     font-size: 16px;
     font-weight: normal;
 }
@@ -190,22 +204,22 @@
 /* Стили для отображения выбранных блюд */
 .form-group_auto label{
     display: block;
-    margin-left: -55px;
-    margin-bottom: 5px;
+    margin-left: -5px;
+    margin-bottom: 3px;
     font-weight: bold;
     color: #555;
     font-family: 'Comfortaa', cursive;
 }
 
 .form-group_auto{
-    width: 100%;
-    margin-top: -30px;
+    width: 90%;
+    margin-top: -25px;
     
 }
 
 .selected-item {
-    width: 100%;
-    margin: 0px -35px;
+    width: 95.5%;
+    margin: 0px -5px;
     align-items: center;
     padding: 10px;
     border: 2px solid #ddd;
@@ -227,19 +241,31 @@
     font-weight: bold;
     text-align: center;
     color: rgb(191, 65, 65);
-    margin-left: -55px;
+   
     
 }
 
-.order-empty-message {
+.order-empty-message{
     color: #666;
     text-align: center;
     font-style: italic;
     border: 2px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    margin: 0px 55px;
+    margin: 30px 50px;
     background-color: #f9f9f9;
+}
+
+.order-empty-message a{
+    text-decoration: none;
+    color: rgb(191, 65, 65);
+}
+
+.order-empty-message a:hover{
+    
+    color: rgb(150, 50, 50);
+    border-bottom: 2px solid rgb(150, 50, 50);
+
 }
 
 input[type="hidden"] {
@@ -299,7 +325,7 @@ input[type="hidden"] {
 
 .combo-dish{
     margin: -20px;
-    text-align: center;
+    text-align: center;    
 }
 
 .combo img{
@@ -314,6 +340,11 @@ input[type="hidden"] {
     transform: translateY(-5px);
 }
 
+.combo a{
+    text-decoration: none;
+    color: rgb(191, 65, 65);
+}
+
 .dessert-note{
     color: #666;
     margin: -20px;
@@ -321,53 +352,27 @@ input[type="hidden"] {
     font-size: 12px;
 }
 
-/* Стили для уведомлений */
-.notification-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
 
-.notification {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
 
-.notification p {
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 25px;
-    line-height: 1.5;
-}
 
-.notification-ok {
-    padding: 12px 30px;
-    background-color: rgb(191, 65, 65);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.notification-ok:hover {
-    background-color: rgb(150, 50, 50);
-    color: white;
+
+/* Адаптивность для панели заказа */
+@media (max-width: 600px) {
+    .order-panel-content {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .order-total-text {
+        font-size: 16px;
+    }
+    
+    .order-button {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /*адаптивность*/
@@ -402,6 +407,21 @@ input[type="hidden"] {
     }
 
     .combo{
+        font-size: 14px;
+    }
+
+    .order-panel-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .order-total-text {
+        font-size: 18px;
+    }
+    
+    .order-button {
+        padding: 10px 20px;
         font-size: 14px;
     }
 }
