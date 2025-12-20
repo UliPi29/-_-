@@ -106,13 +106,14 @@
     padding: 8px 120px;
     z-index: 100;
     border-top: 2px solid rgb(191, 65, 65);
-    margin-left: 0;
-    margin-bottom: 40px;
+    margin: 0;
     transition: all 0.3s ease;
+    display: none;
 }
 
 .order-panel.visible {
     transform: translateY(0);
+    display: flex;
 }
 
 .order-panel:not(.visible) {
@@ -1258,3 +1259,4 @@
     opacity: 0;
 
 }
+
